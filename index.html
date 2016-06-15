@@ -14,19 +14,17 @@
             <div class="in">
                 <h2>Input</h2>
                 <p>Choose the seperator you will use</p>
-                
-
-                <input type="text" name="seperator" id="seperator" value=" ">
+                <!-- <input type="text" name="seperator" id="seperator" value=" "><br><br> -->
+                <textarea id="seperator"></textarea>
                 Paste your data below:<br>
+                
                 <textarea id="input"></textarea>
-                <!-- <input type="text" name="input" id="input"> -->
                 <input type="submit" value="Submit" onclick="sqlify()">
-
             </div>
             <div class="out">
                 <h2>Output</h2>
                 <span id="result"></span>
-</script>
+                </script>
             </div>
         </div>
         <script>
@@ -35,7 +33,7 @@
         var input = document.getElementById('input').value;
         console.log(seperator + " is the seperator")
         console.log(input + " is the input")
-        var splat = input.split(seperator)
+        var splat = input.split(seperator);
         for (each in splat){
         splat[each] = "'" + splat[each].trim() + "' "
         }
@@ -44,7 +42,6 @@
         console.log(joined)
         document.getElementById("result").innerHTML = joined
         }
-
         
         </script>
     </body>
