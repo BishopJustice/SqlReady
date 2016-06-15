@@ -1,14 +1,20 @@
-.container{
-    border: 2px solid black;
+* {
+    box-sizing: border-box;
 }
 
-.in{
-    border: 1px solid black;
-    position: absolute;
-    left: 100px;
+.header {
+    border: 2px solid black;
+    padding: 15px;
 }
-.out{
-    border: 1px solid black;
-    position: absolute;
-    right: 100px;
+.input {
+    width: 25%;
+    float: left;
+    padding: 15px;
+    border: 2px solid black;
+}
+.output {
+    width: 75%;
+    float: left;
+    padding: 15px;
+    border: 2px solid black;
 }

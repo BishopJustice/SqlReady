@@ -8,25 +8,26 @@
         
     </head>
     <body>
-        <div class="container">
+        <div class="header">
             <h1>SqlReady</h1>
             <h3>Prepping for SQL statements</h3>
-            <div class="in">
-                <h2>Input</h2>
-                <p>Choose the seperator you will use</p>
-                <!-- <input type="text" name="seperator" id="seperator" value=" "><br><br> -->
-                <textarea id="seperator"></textarea>
-                Paste your data below:<br>
-                
-                <textarea id="input"></textarea>
-                <input type="submit" value="Submit" onclick="sqlify()">
-            </div>
-            <div class="out">
-                <h2>Output</h2>
-                <span id="result"></span>
-                </script>
-            </div>
         </div>
+        <div class="input">
+            <h2>Input</h2>
+            <h4>Type the seperator you will use</h4>
+            <p>simply enter `enter` for csv columns</p>
+            <!-- <input type="text" name="seperator" id="seperator" value=" "><br><br> -->
+            <textarea id="seperator"></textarea><br><br>
+            Paste your data below:<br>
+            <textarea id="input"></textarea><br>
+            <input type="submit" value="Submit" onclick="sqlify()">
+        </div>
+        <div class="output">
+            <h2>Output</h2>
+            <span id="result"></span>
+            </script>
+        </div>
+        
         <script>
         function sqlify(){
         var seperator = document.getElementById("seperator").value;
@@ -35,9 +36,11 @@
         console.log(input + " is the input")
         var splat = input.split(seperator);
         for (each in splat){
-        splat[each] = "'" + splat[each].trim() + "' "
+        splat[each] = " '" + splat[each].trim() + "'"
+        if (splat[each] === "dog"){
+        delete splat[each]
         }
-        console.log(splat)
+        }
         var joined = splat.join(",")
         console.log(joined)
         document.getElementById("result").innerHTML = joined
