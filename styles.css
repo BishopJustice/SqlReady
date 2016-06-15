@@ -3,12 +3,12 @@
 }
 
 .in{
-    border: 2px solid black;
+    border: 1px solid black;
     position: absolute;
-    left: 25%;
+    left: 100px;
 }
 .out{
-    border: 2px solid black;
+    border: 1px solid black;
     position: absolute;
-    right: 25%;
+    right: 100px;
 }
