@@ -1,0 +1,14 @@
+.container{
+    border: 2px solid black;
+}
+
+.in{
+    border: 2px solid black;
+    position: absolute;
+    left: 25%;
+}
+.out{
+    border: 2px solid black;
+    position: absolute;
+    right: 25%;
+}
