@@ -5,25 +5,49 @@
         <title>SqlReady</title>
         <script src="js/jQuery.js" type="text/javascript" ></script>
         <meta name="viewport" content="width=device-width">
+
+        
+
     </head>
     <body>
         <div class="container">
             <h1>SqlReady</h1>
             <h3>Prepping for SQL statements</h3>
             <div class="in">
-                <h2>Input</h2>
+                <h2>Input</h2>              
                 <p>Choose the seperator you will use</p>
-                <input type="radio" name="seperator" id="seperator" value="\n" checked> \n
-                <input type="radio" name="seperator" value=","> ,
-                <input type="radio" name="seperator" value="tab"> tab <br>
-                <p>Paste list of values below</p>
-                <input type="text" name="input" id="input">
-                <input type="submit" value="Submit">
+                
+                <input type="radio" name="seperator" id="seperator" value="\n"> \n  <br>
+                <input type="radio" name="seperator" id="seperator" value=","> , <br>
+                <input type="radio" name="seperator" id="seperator" value=" " checked> space <br> <br>
+                
+                Paste your data below:<br>
+                <input type="textarea" name="input" id="input">
+                <input type="submit" value="Submit" onclick="sqlify()">
+
             </div>
             <div class="out">
                 <h2>Output</h2>
             </div>
         </div>
-        <script src="js/breaker.js" type="text/javascript"></script>
+        <script>
+        function sqlify(){
+
+        var seperator = document.getElementById("seperator").value;
+        var input = document.getElementById('input').value;
+        console.log(seperator)
+        console.log(input)
+        var splat = input.split(seperator)
+        console.log(splat)
+        for (each in splat){
+            splat[each] = "'" + splat[each] + "'"
+        }
+        console.log(splat)
+        var joined = splat.join(",")
+        console.log(joined)
+        // console.log("Did that work?")
+        }
+    </script>
     </body>
+    
 </html>
