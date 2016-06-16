@@ -1,12 +1,9 @@
         // todo
-        // - figure out how to have functin copy new line characters
-        // - determine maximum number of lines
-        // - refine function to take more lines
-        // - reformat for easier readability
-        // - add copyright
-        // - push live
+        // - figure out how to have copyToClipboard function copy new line characters
+        // - Increase line amount that can be auto-copied
+        // - Add a select text button for backup
 
-        // This function maxes up at ~30k lines
+
         function copyToClipboard(element) {
             var $temp = $("<input>");
             $("body").append($temp);
@@ -16,12 +13,16 @@
         }
 
         function display_sql(joined, len) {
-            document.getElementById("instructions").innerHTML = "The text below is now copied to your clipboard\
-                                                                </br> There are " + len + " items."
+            if (len < 6000) {
+                document.getElementById("instructions").innerHTML = "The text below is now copied to your clipboard\
+                                                                </br> There are " + len + " items.";
+            } else {
+                document.getElementById("instructions").innerHTML = "The text below is ready to be copied\
+                                                                    </br>There are " + len + " items.";
+            }
             document.getElementById("result").innerHTML = joined
             copyToClipboard("#result")
         }
-
 
         function sqlify() {
             var seperator = "\n";
@@ -47,7 +48,6 @@
         function eraseText() {
             document.getElementById("input").value = "";
             document.getElementById("input").focus();
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("instructions").innerHTML = ""
         }
-
-
-        

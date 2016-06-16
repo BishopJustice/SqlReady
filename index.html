@@ -3,8 +3,9 @@
         <meta charset="utf-8">
         <link href="styles.css" rel="stylesheet">
         <title>SqlReady</title>
-        <script src="js/jQuery.js" type="text/javascript" ></script>
-        <script src="js/breaker.js" type="text/javascript" ></script>
+        <script src="js/jQuery.js"></script>
+        <script src="js/breaker.js"></script>
+        <script src="js/clipboard.js"></script>
         <meta name="viewport" content="width=device-width">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,400italic' rel='stylesheet' type='text/css'>
         <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
@@ -16,27 +17,31 @@
         ga('create', 'UA-79423424-1', 'auto');
         ga('send', 'pageview');
         </script>
-
-        
     </head>
     <body>
         <div class="header">
             <h1>SqlReady</h1>
             <h3 class="sub-heading">Prepping for SQL statements</h3>
         </div>
-        <div class="input">
-            <h2>Input</h2>
-            <p>Paste copied spreadsheet column below and hit submit.</br> This will ready the values for SQL and automatically copy it to your clipboard</p>
-            <textarea rows=5 cols=30 id="input" placeholder="Paste data here" autofocus></textarea><br>
-            <button class="submit" onclick="sqlify()">Submit</button>
-            <button class="clear" onclick="eraseText();">Clear</button>
+        <div class="content">
+            <div class="input">
+                <h2>Input</h2>
+                <p>Paste copied spreadsheet column below and hit submit.</br> This will ready the values for SQL and display them below. If you have less than automatically copy it to your clipboard</p>
+                <textarea rows=5 cols=30 id="input" autofocus></textarea><br>
+                <button class="submit" onclick="sqlify()">Submit</button>
+                <button class="clear" onclick="eraseText();">Clear</button>
+            </div>
+            <div class="output">
+                <span id="instructions"></span><br>
+                <span id="result"> </span><br><br>
+            </div>
         </div>
-        <div class="output">
-            <!-- <h2>Output</h2> -->
-            <span id="instructions"></span><br>
-            <span id="result"> </span><br>
-            <!-- <button onclick="copyToClipboard('#result')">Copy</button> -->
+        <div class="footer unselectable">
+            <p>Created by: Luke Greenwood</p>
+            <p>Questions? Comments? Feature Requests? </p>
+            <p>Contact: <a href="mailto:luke@sqlready.com">luke@sqlready.com</a>.</p>
         </div>
-        <span id="hidden"></span>
     </body>
 </html>
+
+
