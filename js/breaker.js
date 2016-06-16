@@ -1,3 +1,13 @@
+        // todo
+        // - figure out how to have functin copy new line characters
+        // - determine maximum number of lines
+        // - refine function to take more lines
+        // - reformat for easier readability
+        // - add copyright
+        // - push live
+
+
+
         function copyToClipboard(element) {
             var $temp = $("<input>");
             $("body").append($temp);
@@ -5,10 +15,6 @@
             document.execCommand("copy");
             $temp.remove();
         }
-
-        // todo: 
-        // break result text into groups of 10 with \n in between
-        // give better instructions on how it copies
 
         function display_sql(joined) {
             document.getElementById("instructions").innerHTML = "The below is now copied to your clipboard"
