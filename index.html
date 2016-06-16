@@ -4,7 +4,9 @@
         <link href="styles.css" rel="stylesheet">
         <title>SqlReady</title>
         <script src="js/jQuery.js" type="text/javascript" ></script>
+        <script src="js/breaker.js" type="text/javascript" ></script>
         <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,400italic' rel='stylesheet' type='text/css'>
         
     </head>
     <body>
@@ -14,39 +16,18 @@
         </div>
         <div class="input">
             <h2>Input</h2>
-            <h4>Type the seperator you will use</h4>
-            <p>simply enter `enter` for csv columns</p>
-            <!-- <input type="text" name="seperator" id="seperator" value=" "><br><br> -->
-            <textarea id="seperator"></textarea><br><br>
-            Paste your data below:<br>
-            <textarea id="input"></textarea><br>
-            <input type="submit" value="Submit" onclick="sqlify()">
+            <p>Paste a column from excel below and hit submit.</br> This will ready the list for SQL and automatically copy it to your clipboard</p>
+            <textarea rows=5 cols=30 id="input" placeholder="Paste data here" autofocus></textarea><br>
+            <button class="submit" onclick="sqlify()">Submit</button>
+            <button class="clear" onclick="eraseText();">Clear</button>
         </div>
         <div class="output">
-            <h2>Output</h2>
-            <span id="result"></span>
-            </script>
+            <!-- <h2>Output</h2> -->
+            <span id="instructions"></span><br>
+            <span id="result"> </span><br>
+            <!-- <button onclick="copyToClipboard('#result')">Copy</button> -->
         </div>
-        
-        <script>
-        function sqlify(){
-        var seperator = document.getElementById("seperator").value;
-        var input = document.getElementById('input').value;
-        console.log(seperator + " is the seperator")
-        console.log(input + " is the input")
-        var splat = input.split(seperator);
-        for (each in splat){
-        splat[each] = " '" + splat[each].trim() + "'"
-        if (splat[each] === "dog"){
-        delete splat[each]
-        }
-        }
-        var joined = splat.join(",")
-        console.log(joined)
-        document.getElementById("result").innerHTML = joined
-        }
-        
-        </script>
-    </body>
-    
+        <span id="hidden"></span>
+    </body> 
 </html>
+
