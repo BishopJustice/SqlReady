@@ -10,6 +10,14 @@
         // break result text into groups of 10 with \n in between
         // give better instructions on how it copies
 
+        function display_sql(joined) {
+            document.getElementById("instructions").innerHTML = "The below is now copied to your clipboard"
+            document.getElementById("result").innerHTML = joined
+            console.log(joined)
+            fuck = joined.replace(/<\s*\/?br>/ig, "\r\n")
+            document.getElementById("hidden").innerHTML = fuck
+            copyToClipboard("#hidden")
+        }
 
         function sqlify() {
             var seperator = "\n";
@@ -19,28 +27,22 @@
             for (each = 0; each < splat.length; each++) {
                 if (each === 0) {
                     splat[each] = "in ('" + splat[each].trim() + "',";
-                }
-                else if (each === splat.length - 1) {
+                } else if (each === splat.length - 1) {
                     splat[each] = "'" + splat[each].trim() + "')";
-                }
-                else if (each != splat.length - 1) {
-                splat[each] = "'" + splat[each].trim() + "',";
+                } else if (each != splat.length - 1) {
+                    splat[each] = "'" + splat[each].trim() + "',";
                 }
             }
-        for (each = 0; each < splat.length; each++) {
-            if (each % 4 === 0) {
-                splat.splice(each, 0, "</br>")
+            for (each = 0; each < splat.length; each++) {
+                if (each % 4 === 0) {
+                    splat.splice(each, 0, "</br>")
+                }
             }
-            
+            var joined = splat.join("")
+            display_sql(joined)
         }
-        var joined = splat.join("")
-        document.getElementById("instructions").innerHTML = "The below is now copied to your clipboard"
-        document.getElementById("result").innerHTML = joined
-        console.log(joined)
-        fuck = joined.replace(/<\s*\/?br>/ig, "\r\n")
-        document.getElementById("hidden").innerHTML = fuck
-        copyToClipboard("#hidden")
-        }
+
+        
 
         function eraseText() {
             document.getElementById("input").value = "";
