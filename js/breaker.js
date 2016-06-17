@@ -1,11 +1,7 @@
         // todo
-        // - figure out how to have functin copy new line characters
-        // - determine maximum number of lines
-        // - refine function to take more lines
-        // - reformat for easier readability
-        // - add copyright
-        // - push live
-
+        // - figure out how to have copyToClipboard function copy new line characters
+        // - Increase line amount that can be auto-copied
+        // - Add a select text button for backup
 
 
         function copyToClipboard(element) {
@@ -16,13 +12,16 @@
             $temp.remove();
         }
 
-        function display_sql(joined) {
-            document.getElementById("instructions").innerHTML = "The below is now copied to your clipboard"
+        function display_sql(joined, len) {
+            if (len < 6000) {
+                document.getElementById("instructions").innerHTML = "The text below is now copied to your clipboard\
+                                                                </br> There are " + len + " items.";
+            } else {
+                document.getElementById("instructions").innerHTML = "The text below is ready to be copied\
+                                                                    </br>There are " + len + " items.";
+            }
             document.getElementById("result").innerHTML = joined
-            console.log(joined)
-            fuck = joined.replace(/<\s*\/?br>/ig, "\r\n")
-            document.getElementById("hidden").innerHTML = fuck
-            copyToClipboard("#hidden")
+            copyToClipboard("#result")
         }
 
         function sqlify() {
@@ -30,27 +29,25 @@
             var input = document.getElementById('input').value;
             var splat = input.split(seperator);
             splat = splat.filter(Boolean);
-            for (each = 0; each < splat.length; each++) {
-                if (each === 0) {
-                    splat[each] = "in ('" + splat[each].trim() + "',";
-                } else if (each === splat.length - 1) {
-                    splat[each] = "'" + splat[each].trim() + "')";
-                } else if (each != splat.length - 1) {
-                    splat[each] = "'" + splat[each].trim() + "',";
-                }
+            splat[0] = "in ('" + splat[0].trim() + "', ";
+            splat[splat.length - 1] = "'" + splat[splat.length - 1] + "')";
+            for (each = 1; each < splat.length - 1; each++) {
+                splat[each] = "'" + splat[each].trim() + "', ";
             }
+            // Need to figure out how to copy line breaks to clipboard 
             for (each = 0; each < splat.length; each++) {
-                if (each % 4 === 0) {
+                if (each % 5 === 0) {
                     splat.splice(each, 0, "</br>")
                 }
             }
             var joined = splat.join("")
-            display_sql(joined)
-        }
+            display_sql(joined, splat.length - 1)
 
-        
+        }
 
         function eraseText() {
             document.getElementById("input").value = "";
             document.getElementById("input").focus();
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("instructions").innerHTML = ""
         }
