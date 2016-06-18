@@ -1,7 +1,7 @@
-        // todo
-        // - figure out how to have copyToClipboard function copy new line characters
-        // - Increase line amount that can be auto-copied
-        // - Add a select text button for backup
+         // todo
+         // - figure out how to have copyToClipboard function copy new line characters
+         // - Increase line amount that can be auto-copied
+         // - Add a select text button for backup
 
 
         function copyToClipboard(element) {
@@ -29,14 +29,20 @@
             var input = document.getElementById('input').value;
             var splat = input.split(seperator);
             splat = splat.filter(Boolean);
-            splat[0] = "in ('" + splat[0].trim() + "', ";
+            if (splat.length != 1) {
+                splat[0] = "in ('" + splat[0].trim() + "', ";
+            }
+            if (splat.length === 1){
+                splat[0] = "'" + splat[0].trim() + "'";
+            }
+            if (splat.length > 1){
             splat[splat.length - 1] = "'" + splat[splat.length - 1] + "')";
             for (each = 1; each < splat.length - 1; each++) {
                 splat[each] = "'" + splat[each].trim() + "', ";
-            }
+            }}
             // Need to figure out how to copy line breaks to clipboard 
             for (each = 0; each < splat.length; each++) {
-                if (each % 5 === 0) {
+                if (each % 9 === 0) {
                     splat.splice(each, 0, "</br>")
                 }
             }
