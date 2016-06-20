@@ -36,7 +36,7 @@
             }
             // Need to figure out how to copy line breaks to clipboard 
             for (each = 0; each < splat.length; each++) {
-                if (each % 5 === 0) {
+                if (each % 10 === 0) {
                     splat.splice(each, 0, "</br>")
                 }
             }
