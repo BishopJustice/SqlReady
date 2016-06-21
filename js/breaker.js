@@ -21,6 +21,7 @@
                                                                     </br>There are " + len + " items.";
             }
             document.getElementById("result").innerHTML = joined
+            document.getElementById("result").style.visibility = "visible";
             copyToClipboard("#result")
         }
 
@@ -42,8 +43,8 @@
             }
             var joined = splat.join("")
             display_sql(joined, splat.length - 1)
-
         }
+            
 
         function eraseText() {
             document.getElementById("input").value = "";
