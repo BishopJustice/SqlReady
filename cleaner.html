@@ -4,7 +4,7 @@
         <link href="styles.css" rel="stylesheet">
         <title>SqlReady</title>
         <script src="js/jQuery.js"></script>
-        <script src="js/opener.js"></script>
+        <script src="js/breaker.js"></script>
         <meta name="viewport" content="width=device-width">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,400italic' rel='stylesheet' type='text/css'>
         <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
@@ -22,19 +22,22 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="sqlready.html">SqlReady</a></li>
-            <li><a href="cleaner.html">Phone Cleaner</a></li>
-            <li><a class="active" href="opener.html">Tab Opener</a></li>
+            <li><a class="active" href="cleaner.html">Phone Cleaner</a></li>
+            <li><a href="opener.html">Tab Opener</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <div class="content">
             <div class="input">
-                <h2>Tab Opener</h2>
-                <p>Paste a column of URLs and this tool will open them all. If you'd like to add something after each URL enter it into the Post Text box. You'll need to turn off popup protection for this tool to work.</p>
-                <textarea rows=5 cols=30 id="input" autofocus></textarea><br><br>
-                Post Text <input type="text" id="posttext"><br><br>
-                <button class="submit" onclick="openall()">Submit</button>
+                <h2>Phone Cleaner</h2>
+                <p>Cleans up phone numbers and things like that. Coming soon.</p>
+                <textarea rows=5 cols=30 id="input" autofocus></textarea><br>
+                <button class="submit" onclick="sqlify()">Submit</button>
                 <button class="clear" onclick="eraseText();">Clear</button>
-                <br><br>
+            </div>
+            <div class="output">
+                <span id="instructions"></span><br>
+                <span id="result"> </span><br><br>
             </div>
         </div>
         <div class="footer">
