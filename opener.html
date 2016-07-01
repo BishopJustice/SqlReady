@@ -19,17 +19,24 @@
         
     </head>
     <body>
-        <div class="header">
-            <h1>SqlReady</h1>
-            <h3 class="sub-heading">Prepping for SQL statements</h3>
-        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sqlready.html">SqlReady</a></li>
+            <li><a href="cleaner.html">Phone Cleaner</a></li>
+            <li><a class="active" href="opener.html">Tab Opener</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
         <div class="content">
             <div class="input">
-                <h2>Opener</h2>
-                <p>Paste a column of URLs and this tool will open them all.</p>
-                <textarea rows=5 cols=30 id="input" autofocus></textarea><br>
+                <h2>Tab Opener</h2>
+                <p>Paste a column of URLs and this tool will open them all. If you'd like to add something after each URL enter it into the Post Text box.</p>
+                
+                <textarea rows=5 cols=30 id="input" autofocus></textarea><br><br>
+                Post Text <input type="text" id="posttext"><br><br>
                 <button class="submit" onclick="openall()">Submit</button>
                 <button class="clear" onclick="eraseText();">Clear</button>
+                <br><br>
+                
             </div>
         </div>
         <div class="footer">

@@ -20,20 +20,25 @@
     </head>
     <body>
         <ul>
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="sqlready.html">SqlReady</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="sqlready.html">SqlReady</a></li>
             <li><a href="cleaner.html">Phone Cleaner</a></li>
             <li><a href="opener.html">Tab Opener</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
 
-        <div class="header">
-            <h1>SqlReady.com</h1>
-            <h3 class="sub-heading">Making Work Easier</h3>
-        </div>
         <div class="content">
-            <p>SqlReady.com is a collection of operational tools that uses columns copied from spreadsheets to make tedius office tasks easier. From formatting lists for SQL queries to opening multiple web pages at a time, SqlReady.com allows you to complete everyday taks faster than ever.</p>
-            <p>The first step in almost all of these tools is to copy a column of text from a spreadsheet and paste it into the input box.</p>
+            <div class="input">
+                <h2>SqlReady</h2>
+                <p>Paste copied spreadsheet column below and hit submit.</br> This will ready the values for SQL and display them.</p>
+                <textarea rows=5 cols=30 id="input" autofocus></textarea><br>
+                <button class="submit" onclick="sqlify()">Submit</button>
+                <button class="clear" onclick="eraseText();">Clear</button>
+            </div>
+            <div class="output">
+                <span id="instructions"></span><br>
+                <span id="result"> </span><br><br>
+            </div>
         </div>
         <div class="footer">
             <p>Created by: Luke Greenwood</p>
