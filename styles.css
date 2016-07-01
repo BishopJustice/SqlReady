@@ -18,13 +18,12 @@ body {
 .footer {
     position: absolute;
     left: 0;
-    bottom: 5px;
+    bottom: 1px;
     height: 100px;
     width: 100%;
     background-color: #efefef;
     text-align: center;
 }
-
 
 .input {
     text-align: center;
@@ -44,10 +43,9 @@ body {
 }
 
 #result{
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 #instructions{
     color: red;
 }
-
