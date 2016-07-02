@@ -30,6 +30,10 @@ li a:hover:not(.active) {
     background-color: #111;
 }
 
+h3 {
+    font-family: "Open Sans", sans-serif;
+}
+
 .active {
     background-color: #4CAF50;
 }
@@ -82,3 +86,11 @@ li a:hover:not(.active) {
 #instructions{
     color: red;
 }
+
+.left-body{
+    background: white;
+    text-align: left;
+    width: 50%;
+}
+
+

@@ -3,8 +3,8 @@
         <meta charset="utf-8">
         <link href="styles.css" rel="stylesheet">
         <title>SqlReady</title>
+        <script src="js/cleaner.js"></script>
         <script src="js/jQuery.js"></script>
-        <script src="js/breaker.js"></script>
         <meta name="viewport" content="width=device-width">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,400italic' rel='stylesheet' type='text/css'>
         <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
@@ -30,9 +30,11 @@
         <div class="content">
             <div class="input">
                 <h2>Phone Cleaner</h2>
-                <p>Cleans up phone numbers and things like that. Coming soon.</p>
+                <p>Allows you to custom format a column of phone numbers. By default this will return a list of phone nubmer seperated by commas</p>
+                Begining Digits: <input type="text" id="start" size="5" maxlength="5"><br><br>
+                SqlReady<input type="checkbox" id="sqlbutton" name="sqlify" value="go"><br><br>
                 <textarea rows=5 cols=30 id="input" autofocus></textarea><br>
-                <button class="submit" onclick="sqlify()">Submit</button>
+                <button class="submit" onclick="cleanit()">Submit</button>
                 <button class="clear" onclick="eraseText();">Clear</button>
             </div>
             <div class="output">
