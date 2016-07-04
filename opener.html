@@ -28,9 +28,10 @@
         <div class="content">
             <div class="input">
                 <h2>Tab Opener</h2>
-                <p>Paste a column of URLs and this tool will open them all. If you'd like to add something after each URL enter it into the Post Text box. You'll need to turn off popup protection for this tool to work.</p>
-                <textarea rows=5 cols=30 id="input" autofocus></textarea><br><br>
-                Post Text <input type="text" id="posttext"><br><br>
+                <p>Paste a column of URLs below and this tool will open them all. If you'd like to add something before or after each URL enter it into the appropriate boxes below. You'll need to turn off popup protection for this tool to work.</p>
+                Add Before URL: <input type="text" id="pretext" placeholder="Optional"><br>
+                <span id="post">Add After URL: </span> <input type="text" id="posttext" placeholder="Optional"><br><br>
+                <textarea rows=5 cols=30 id="input" placeholder="Urls go here" autofocus></textarea><br><br>
                 <button class="submit" onclick="openall()">Submit</button>
                 <button class="clear" onclick="eraseText();">Clear</button>
                 <br><br>

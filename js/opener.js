@@ -8,11 +8,13 @@ function openall() {
     var splat = input.split(seperator);
     splat = splat.filter(Boolean);
     var post = document.getElementById('posttext').value
+    var pre = document.getElementById('pretext').value
     for (each in splat) {
+        splat[each] = pre + splat[each] + post;
         if (splat[each].substring(0, 8) != "https://" && splat[each].substring(0, 7) != "http://") {
             splat[each] = "http://" + splat[each];
-        }
-        splat[each] = splat[each] + post;
+        }  
+        console.log(splat[each])
         window.open(splat[each]);
     }
 }
