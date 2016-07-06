@@ -4,6 +4,9 @@ function cleanit() {
     var splat = input.split(seperator);
     for (each in splat) {
         splat[each] = splat[each].replace(/[^0-9]/g, '');
+        if (splat[each][0] === "1"){
+            splat[each] = splat[each].slice(1)
+        }
     }
     var start = document.getElementById('start').value;
     if (start !== null) {
@@ -12,14 +15,12 @@ function cleanit() {
         }
     }
     var isChecked = document.getElementById('sqlbutton').checked;
-    console.log(isChecked)
     splat = splat.filter(Boolean);
-    console.log(splat)
     if (isChecked) {
         sqlify(splat)
         var joined = splat.join("")
     }
-    
+
     else{
     var joined = splat.join(", ")
         }
@@ -30,11 +31,11 @@ function cleanit() {
 
 function display(joined, len) {
     if (len < 6000) {
-        document.getElementById("instructions").innerHTML = "The text below is now copied to your clipboard\
-                                                                </br> There are " + len + " items.";
+        document.getElementById("instructions").innerHTML = "The text below is now copied to your clipboard </br> There are " + len + " items.";
     } else {
-        document.getElementById("instructions").innerHTML = "The text below is ready to be copied\
-                                                                    </br>There are " + len + " items.";
+                                                                
+        document.getElementById("instructions").innerHTML = "The text below is ready to be copied </br>There are " + len + " items.";
+                                                                    
     }
     document.getElementById("result").innerHTML = joined
     copyToClipboard("#result")
