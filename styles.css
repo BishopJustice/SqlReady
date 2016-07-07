@@ -44,14 +44,19 @@ h3 {
     text-align: center;
 }
 
-
-.content{
-    overflow: hidden;
-    padding-left:20%;
-    padding-right:20%;
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.5;
+.left-bar{
+    float: left;
+    position: absolute;
+    max-width:25%;
 }
+
+.right-bar{
+    float: right;
+    position: absolute;
+    right: 0;
+    max-width:25%;
+}
+
 .footer {
     position: absolute;
     left: 0;
@@ -62,21 +67,28 @@ h3 {
     text-align: center;
 }
 
+
+
 .input {
     text-align: center;
     padding: 5px;
     font-family: "Open Sans", sans-serif;
+    width:auto;
 }
 .output {
+    padding: 5px;
     text-align: center;
     font-family: "Open Sans", sans-serif;
+    width: auto;
 }
 
-.unselectable {
-  -webkit-user-select: none;  /* Chrome all / Safari:; all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none;          /* Likely future */       
+.content{
+    overflow: hidden;
+    padding-left:20%;
+    padding-right:20%;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.5;
+    position: relative;
 }
 
 #result{
